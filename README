@@ -1,1 +1,31 @@
 Hackademic CMS
+
+
+== Developer Instructions. ==
+
+
+Since the project is gaining some momentum and thus the code base grows the following are some instructions that developers should follow.
+(In the early stages of this change many of the points mentioned here won't be present in the codebase, if that's true then add them).
+So, every pull request (for non-commiters) or commits to be merged to the next,next-dev branches should follow the following:
+
+* Unit Tests:
+We are trying to introduce unit tests which is usually a very good idea. So:
+
+** New features should come with php-unit unit tests testing that the feature works as expected
+** All the code should pass the existing unit tests before merging
+** If you have to modify a test make sure that nothing else breaks
+
+* Coding - Style:
+
+A couple of years ago we decided to adopt the Drupal coding style, so with some lag it's a very good idea to do that.
+** Every commit shouldn't generate any errors with  PHP_CodeSniffer (to fix most errors you can use PHP Coding Standards Fixer )
+
+* Commits
+Clean commits make it easy to review code  and make sure that it only does one thing. So:
+
+** One commit should fix one problem or introduce one feature only, please don't commit fixes all around the place.
+** Commits should be atomic, each commit should work by itself
+** Only what you modified goes in the commit ( for example you shouldn't commit vim/project files or anything unrelated)
+** The commit message should explain what you did
+** Every commit should merge with next-dev without conflicts (rebase often)
+
