@@ -27,6 +27,16 @@
  * @copyright 2012 OWASP
  *
  */
+$path = getcwd().'/installation';
+function removeDirectory($path) {
+    $files = glob($path . '/*');
+    foreach ($files as $file) {
+        is_dir($file) ? removeDirectory($file) : unlink($file);
+    }
+    rmdir($path);
+    return;
+}
+removeDirectory($path);
 
 require_once("config.inc.php");
 require_once("model/common/class.Loader.php");
